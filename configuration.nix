@@ -16,23 +16,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; 
-  #networking.networkmanager.enable = true;  
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chafey= {
      initialPassword = "pw123";
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     firefox
-  #     tree
-  #   ];
   };
 
   security.sudo.extraRules = [
@@ -55,7 +53,9 @@
     vim 
     wget
     git
-    direnv
+    neofetch
+    htop
+    s-tui
   ];
 
   # List services that you want to enable:
