@@ -28,7 +28,7 @@
   users.users.chafey= {
      initialPassword = "pw123";
      isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   #   packages = with pkgs; [
   #     firefox
   #     tree
@@ -46,6 +46,8 @@
       ];
     }
   ];
+
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
