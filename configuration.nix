@@ -35,12 +35,25 @@
   #   ];
   };
 
+  security.sudo.extraRules = [
+    { 
+      users = [ "chafey" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
     wget
     git
+    direnv
   ];
 
   # List services that you want to enable:
