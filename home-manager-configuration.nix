@@ -15,5 +15,19 @@ in
       userName  = "Chris Hafey";
       userEmail = "chafey@gmail.com";
     };
+    programs.vim = {
+      enable = true;
+      settings = {};
+      extraConfig = ''
+        syntax on
+        filetype on
+        set tabstop=2 
+        set shiftwidth=2
+        set expandtab
+        set smartindent
+        set autoindent
+        set smartcase
+      ''; 
+    };
   };
 }
