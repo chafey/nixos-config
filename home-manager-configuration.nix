@@ -56,6 +56,7 @@ EOF
         set smartindent
         set autoindent
         set smartcase
+        set nu rnu
       ''; 
     };
     programs = {
