@@ -25,7 +25,7 @@ in
         theme = "steeef";
       };
       shellAliases = {
-        ls = "ls -lah";
+        ls = "ls --color=auto";
         ns = "sudo nixos-rebuild switch";
       };
       initExtra = pkgs.lib.fileContents ./init.zsh;
@@ -49,6 +49,7 @@ in
         nix-direnv.enable = true;
       };
     };
+    programs.dircolors.enable = true;
     programs.bash.enable = true;
     programs.htop.enable = true;
   };   
