@@ -17,47 +17,19 @@ in
         enable = true;
         theme = "steeef";
       };
-      initExtra = ''
-nixify() {
-  if [ ! -e ./.envrc ]; then
-    echo "use nix" > .envrc
-    direnv allow
-  fi
-  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
-    cat > default.nix <<'EOF'
-with import <nixpkgs> {};
-mkShell {
-  packages = [
-    pkgs.gnumake
-    pkgs.cmake
-    pkgs.clang
-    pkgs.nodejs
-  ];
-}
-EOF
-  fi
-}
-'';
+      initExtra = pkgs.lib.fileContents ./init.zsh;
     };
     programs.git = {
       enable = true;
       userName  = "Chris Hafey";
       userEmail = "chafey@gmail.com";
     };
-    programs.vim = {
+    programs.neovim = {
       enable = true;
-      settings = {};
-      extraConfig = ''
-        syntax on
-        filetype on
-        set tabstop=2 
-        set shiftwidth=2
-        set expandtab
-        set smartindent
-        set autoindent
-        set smartcase
-        set nu rnu
-      ''; 
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      extraConfig = pkgs.lib.fileContents ./init.vim;
     };
     programs = {
       direnv = {
@@ -67,5 +39,6 @@ EOF
       };
     };
     programs.bash.enable = true;
+    programs.htop.enable = true;
   };   
 }

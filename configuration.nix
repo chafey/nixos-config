@@ -50,13 +50,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
-    wget
-    git
+    neovim
     neofetch
-    htop
-    s-tui
   ];
+  environment.variables.EDITOR = "nvim";
 
   # List services that you want to enable:
 
