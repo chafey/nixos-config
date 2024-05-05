@@ -31,6 +31,7 @@
      initialPassword = "pw123";
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+     openssh.authorizedKeys.keyFiles = [./authorized_keys];
   };
 
   security.sudo.extraRules = [
