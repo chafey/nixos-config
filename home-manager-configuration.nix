@@ -13,9 +13,20 @@ in
     programs.zsh = {
       enable = true;
       enableCompletion = true;
+      plugins = [
+        {
+          name = "vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
+      ];
       oh-my-zsh = {
         enable = true;
         theme = "steeef";
+      };
+      shellAliases = {
+        ls = "ls -lah";
+        ns = "sudo nixos-rebuild switch";
       };
       initExtra = pkgs.lib.fileContents ./init.zsh;
     };

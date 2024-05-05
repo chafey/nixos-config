@@ -28,7 +28,6 @@
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chafey= {
-     initialPassword = "pw123";
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
      openssh.authorizedKeys.keyFiles = [./authorized_keys];
@@ -59,7 +58,11 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true; 
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
 
   networking.firewall.enable = false;
 
