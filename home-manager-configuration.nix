@@ -34,12 +34,13 @@ in
       autoEnableSources = true;
       sources = [
         {name = "nvim_lsp";}
-	{name = "path";}
-	{name = "buffer";}
+	      {name = "path";}
+	      {name = "buffer";}
       ];
     };
     plugins.telescope.enable = true;
     plugins.treesitter.enable = true;
+    plugins.harpoon.enable = true;
   };
 
   home-manager.users.chafey = {
