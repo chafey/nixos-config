@@ -52,6 +52,8 @@
   environment.systemPackages = with pkgs; [
     neovim
     neofetch
+    clang
+    curl
   ];
   environment.variables.EDITOR = "nvim";
 
